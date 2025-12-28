@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盛宝金融科技商学院</title>
+    <!-- 引入Font Awesome图标库（解决日历图标显示问题） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 本地样式文件 -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!-- ====================================== -->
+    <!-- 头部导航区域 -->
+    <!-- ====================================== -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo区域 -->
+            <div class="logo">
+                <img src="./image/logo.png" alt="盛宝金融科技商学院logo">
+            </div>
+            
+            <!-- 主导航 -->
+            <nav class="main-nav">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">学院概况</a>
+                        <ul class="submenu">
+                            <li><a href="#">学院简介</a></li>
+                            <li><a href="#">师资力量</a></li>
+                            <li><a href="#">组织机构</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">教学科研</a>
+                        <ul class="submenu">
+                            <li><a href="#">专业建设</a></li>
+                            <li><a href="#">课程体系</a></li>
+                            <li><a href="#">科研成果</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">产教融合</a>
+                        <ul class="submenu">
+                            <li><a href="#">合作企业</a></li>
+                            <li><a href="#">实训基地</a></li>
+                            <li><a href="#">项目合作</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">党团学工</a>
+                        <ul class="submenu">
+                            <li><a href="#">党建工作</a></li>
+                            <li><a href="#">团学活动</a></li>
+                            <li><a href="#">学生管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">招生就业</a>
+                        <ul class="submenu">
+                            <li><a href="#">招生信息</a></li>
+                            <li><a href="#">就业指导</a></li>
+                            <li><a href="#">校友风采</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ====================================== -->
+    <!-- 横幅Banner区域 -->
+    <!-- ====================================== -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>盛宝金融科技商学院</h1>
+            <p>Saxo Fintech Business School</p>
+        </div>
+    </section>
+
+    <!-- ====================================== -->
+    <!-- 新闻资讯区域 -->
+    <!-- ====================================== -->
+    <section class="news-section reveal-on-scroll">
+        <div class="container">
+            <!-- 新闻资讯头部（标题+更多） -->
+            <div class="section-header">
+                <h2 class="section-title">新闻资讯</h2>
+                <a href="" class="more-link">More</a>
+            </div>
+
+            <!-- 新闻资讯内容（轮播+列表） -->
+            <div class="news-content">
+                <!-- 焦点新闻轮播 -->
+                <div class="news-featured carousel">
+                    <div class="carousel-inner">
+                        <!-- 轮播项1（激活状态） -->
+                        <div class="carousel-item active">
+                            <a href="#" target="_blank">
+                                <img src="./image/banner1.png" alt="暑促国庆，盛宝暑促国庆中" />
+                                <div class="featured-caption">
+                                    <h3>暑促国庆，盛宝暑促国庆中</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 轮播项2 -->
+                        <div class="carousel-item">
+                            <a href="#" target="_blank">
+                                <img src="./image/banner2.png" alt="强化学风建设" />
+                                <div class="featured-caption">
+                                    <h3>强化学风建设，培育时代新人</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 轮播项3 -->
+                        <div class="carousel-item">
+                            <a href="#" target="_blank">
+                                <img src="./image/banner3.png" alt="考研备考规划" />
+                                <div class="featured-caption">
+                                    <h3>考研备考“先规划”</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 轮播控制按钮（上一张） -->
+                    <button class="carousel-control prev" aria-label="上一张幻灯片">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+
+                    <!-- 轮播控制按钮（下一张） -->
+                    <button class="carousel-control next" aria-label="下一张幻灯片">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 新闻列表 -->
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="news-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                            <span>2025-06-10</span>
+                        </div>
+                        <h3 class="news-title">
+                            <a href="#">我院学子在全国大学生金融创新大赛中斩获金奖</a>
+                        </h3>
+                        <p class="news-desc">
+                            在刚刚结束的第八届全国大学生金融创新大赛中，我院参赛团队凭借"基于区块链的跨境支付解决方案"项目荣获全国金奖，充分展现了我院学子的实践创新能力。
+                        </p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="news-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                            <span>2025-05-28</span>
+                        </div>
+                        <h3 class="news-title">
+                            <a href="#">盛宝金融科技产业学院揭牌仪式隆重举行</a>
+                        </h3>
+                        <p class="news-desc">
+                            5月28日，三亚学院与盛宝金融科技有限公司联合成立的盛宝金融科技产业学院正式揭牌，标志着我院产教融合工作进入新阶段。
+                        </p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="news-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                            <span>2025-04-15</span>
+                        </div>
+                        <h3 class="news-title">
+                            <a href="#">我院新增2门省级一流本科课程</a>
+                        </h3>
+                        <p class="news-desc">
+                            近日，海南省教育厅公布2025年省级一流本科课程名单，我院《金融大数据分析》《区块链应用实务》两门课程成功入选。
+                        </p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-meta">
+                            <span class="news-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                            <span>2025-03-20</span>
+                        </div>
+                        <h3 class="news-title">
+                            <a href="#">吉利控股集团来院考察，洽谈校企合作事宜</a>
+                        </h3>
+                        <p class="news-desc">
+                            3月20日，吉利控股集团人力资源总监一行来院考察，双方就人才培养、实习就业、项目合作等方面达成初步合作意向。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================== -->
+    <!-- 产教融合区域 -->
+    <!-- ====================================== -->
+    <section class="industry-section reveal-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">产教融合</h2>
+                <a href="#" class="more-link">More</a>
+            </div>
+            <div class="industry-grid">
+                <div class="industry-item">
+                    <div class="industry-date">
+                        <span class="year">2025</span>
+                        <span class="day">12-16</span>
+                    </div>
+                    <div class="industry-info">
+                        <a href="#" target="_blank" title="盛宝学院">
+                            盛宝金融科技产业学院正式启动，开设金融科技特色班
+                        </a>
+                    </div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-date">
+                        <span class="year">2025</span>
+                        <span class="day">12-17</span>
+                    </div>
+                    <div class="industry-info">
+                        <a href="#" target="_blank" title="盛宝学院">
+                            盛宝金融科技产业学院参加高等院校金融科技专业建设实践交流会
+                        </a>
+                    </div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-date">
+                        <span class="year">2025</span>
+                        <span class="day">11-08</span>
+                    </div>
+                    <div class="industry-info">
+                        <a href="#" target="_blank" title="盛宝学院">
+                            与盛宝丹麦银行共建跨境金融实训基地，首批学生入驻实训
+                        </a>
+                    </div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-date">
+                        <span class="year">2025</span>
+                        <span class="day">10-25</span>
+                    </div>
+                    <div class="industry-info">
+                        <a href="#" target="_blank" title="盛宝学院">
+                            吉利控股集团捐赠金融科技设备，助力实验室升级改造
+                        </a>
+                    </div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-date">
+                        <span class="year">2025</span>
+                        <span class="day">09-12</span>
+                    </div>
+                    <div class="industry-info">
+                        <a href="#" target="_blank" title="盛宝学院">
+                            2025级金融科技专业校企联合培养方案发布会成功举办
+                        </a>
+                    </div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-date">
+                        <span class="year">2025</span>
+                        <span class="day">08-30</span>
+                    </div>
+                    <div class="industry-info">
+                        <a href="#" target="_blank" title="盛宝学院">
+                            与中国互联网金融协会达成合作，共建行业人才认证体系
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================== -->
+<!-- 党团学工区域（以截图为中心，5图轮播） -->
+<!-- ====================================== -->
+<section class="party-section reveal-on-scroll">
+    <div class="container">
+        <div class="party-wrapper">
+            <!-- 党团学工5图轮播 -->
+<div class="party-image carousel party-carousel">
+    <div class="carousel-inner">
+        <!-- 轮播项1 -->
+        <div class="carousel-item active">
+            <a href="#" target="_blank">
+                <img src="./image/dangtuan.png" alt="党团学工活动（截图原图）" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="#" target="_blank">
+                <img src="./image/jiaoxuegongzuo.png" alt="党团学工活动2" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="#" target="_blank">
+                <img src="./image/kexueyanjiu.jpg" alt="党团学工活动3" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="#" target="_blank">
+                <img src="./image/tongzhegonggao.jpg" alt="党团学工活动4" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="#" target="_blank">
+                <img src="./image/xiaoyouzhongxi.jpg" alt="党团学工活动5" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="#" target="_blank">
+                <img src="./image/zhuanyeshezhi.jpg" alt="党团学工活动5" />
+            </a>
+        </div>
+    </div>
+
+    <!-- 添加轮播控制按钮 -->
+    <button class="carousel-control prev" aria-label="上一张幻灯片">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+        </svg>
+    </button>
+    <button class="carousel-control next" aria-label="下一张幻灯片">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+        </svg>
+    </button>
+</div>
+            
+            <!-- 党团学工内容（保持截图里的原内容不变） -->
+            <div class="party-content">
+                <div class="party-header">
+                    <h2 class="section-title">党团学工</h2>
+                    <a href="#" class="more-link">More</a>
+                </div>
+                <div class="party-list">
+    <div class="party-item">
+        <div class="party-date">
+            <span class="year">2025</span>
+            <span class="day">10-14</span>
+        </div>
+        <div class="party-info">
+            <h3 class="party-title">
+                <a href="#" target="_blank">青春反诈同行 共筑和谐社会——开展反诈骗主题教育活动</a>
+            </h3>
+            <p class="party-desc">
+                10月14日，盛宝学院开展反诈骗动员大会，邀请辖区民警进行专题讲座，要求全体师生提高防范意识，共同筑牢校园安全防线。
+            </p>
+        </div>
+    </div>
+    <div class="party-item">
+        <div class="party-date">
+            <span class="year">2025</span>
+            <span class="day">09-28</span>
+        </div>
+        <div class="party-info">
+            <h3 class="party-title">
+                <a href="#" target="_blank">我院开展"迎国庆 颂祖国"主题团日活动</a>
+            </h3>
+            <p class="party-desc">
+                9月28日，学院组织团员青年开展主题团日活动，通过合唱、朗诵等形式表达爱国情怀，庆祝新中国成立76周年。
+            </p>
+        </div>
+    </div>
+    <div class="party-item">
+        <div class="party-date">
+            <span class="year">2025</span>
+            <span class="day">09-10</span>
+        </div>
+        <div class="party-info">
+            <h3 class="party-title">
+                <a href="#" target="_blank">"赓续师恩 感念师情"——我院举办教师节表彰大会</a>
+            </h3>
+            <p class="party-desc">
+                9月10日，学院召开教师节表彰大会，对优秀教师、优秀教育工作者进行表彰，弘扬尊师重教风尚。
+            </p>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ====================================== -->
+    <!-- 相关链接区域 -->
+    <!-- ====================================== -->
+    <section class="related-links">
+        <div class="container">
+            <span class="links-title">相关链接</span>
+            <div class="links-list">
+                <a href="#" target="_blank">盛宝丹麦银行</a>
+                <a href="#" target="_blank">吉利控股集团</a>
+                <a href="#" target="_blank">盛宝金融科技有限公司</a>
+                <a href="#" target="_blank">世界银行</a>
+                <a href="#" target="_blank">中国互联网金融协会</a>
+                <a href="#" target="_blank">中国人民银行</a>
+                <a href="#" target="_blank">三亚学院招生信息网</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================== -->
+    <!-- 底部区域 -->
+    <!-- ====================================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>版权所有 盛宝金融科技商学院</p>
+            <p>琼ICP备14001034-11 | 招生电话 0898-88385870</p>
+        </div>
+    </footer>
+
+    <!-- 本地脚本文件 -->
+    <script src="js/script.js"></script>
+</body>
+</html>

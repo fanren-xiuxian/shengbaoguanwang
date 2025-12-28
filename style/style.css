@@ -1,0 +1,764 @@
+/* ======================
+   全局样式：重置 & 基础配置
+   ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 全局复用：渐入动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======================
+   通用布局：公共容器
+   ====================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+/* ======================
+   页面模块：头部导航
+   ====================== */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 40px 0;
+    background: linear-gradient(to bottom, rgba(0, 51, 102, 0.9) 0%, rgba(0, 51, 102, 0) 100%);
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.main-header.scrolled {
+    background-color: rgba(0, 51, 102, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo样式 */
+.logo img {
+    display: block;
+    height: 50px;
+}
+
+/* 导航菜单容器 */
+.main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 主导航菜单 */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a {
+    display: block;
+    position: relative;
+    padding: 10px 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 菜单hover下划线动画 */
+.menu-item > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.menu-item:hover > a::after {
+    width: 100%;
+}
+
+/* 子菜单样式 */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 999;
+    min-width: 160px;
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* 子菜单三角箭头 */
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+/* 子菜单hover显示 */
+.menu-item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu a {
+    display: block;
+    padding: 8px 20px;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    color: #003666;
+    background-color: #f9f9f9;
+}
+
+/* ======================
+   页面模块：Banner横幅
+   ====================== */
+.banner {
+    height: 100vh;
+    padding-top: 80px;
+    box-sizing: border-box;
+    background-image: url(/image/bglogo.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+/* Banner遮罩层 */
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.banner h1 {
+    margin-bottom: 20px;
+    font-size: 48px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.banner p {
+    font-size: 24px;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* ======================
+   页面模块：新闻资讯
+   ====================== */
+.news-section {
+    padding: 80px 0;
+    background-color: #fff;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.news-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 新闻区域容器重写 */
+.news-section .container {
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+}
+
+/* 新闻头部（标题+更多） */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+}
+
+.section-title {
+    position: relative;
+    font-size: 28px;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* 标题下方的短横线 */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #003366;
+}
+
+.more-link {
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.more-link:hover {
+    color: #003366;
+    border-bottom-color: #003366;
+}
+
+/* 新闻内容（轮播+列表） */
+.news-content {
+    display: flex;
+    gap: 40px;
+}
+
+/* 焦点新闻轮播 */
+.news-featured {
+    flex: 0 0 45%;
+    height: 463px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.carousel-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 轮播图片标题覆盖层 */
+.featured-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 3;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #fff;
+}
+
+.featured-caption h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* 新闻资讯列表 */
+.news-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #999;
+}
+
+.news-icon {
+    font-size: 12px;
+    color: #003366;
+}
+
+.news-title {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.news-title a {
+    color: #333;
+    font-weight: bold;
+}
+
+.news-title a:hover {
+    color: #003366;
+}
+
+.news-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ======================
+   功能组件：轮播控制按钮
+   ====================== */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 51, 102, 0.7);
+    color: #fff;
+    cursor: pointer;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 51, 102, 0.9);
+}
+
+.carousel-control.prev {
+    left: 15px;
+}
+
+.carousel-control.next {
+    right: 15px;
+}
+
+/* 隐藏按钮默认焦点样式 */
+.carousel-control:focus {
+    outline: none;
+}
+
+/* ======================
+   页面模块：产教融合
+   ====================== */
+.industry-section {
+    padding: 60px 0;
+    background-color: #fcfcfc;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.industry-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.industry-section .container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+}
+
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.industry-item {
+    padding: 25px 20px;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+}
+
+.industry-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.industry-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    padding-right: 20px;
+    min-width: 90px;
+    border-right: 1px solid #eee;
+    color: #003366;
+}
+
+.industry-date .year {
+    margin-bottom: 2px;
+    font-size: 13px;
+    color: #888;
+}
+
+.industry-date .day {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    color: #003366;
+}
+
+.industry-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.industry-info a {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.industry-info a:hover {
+    color: #0056b3;
+}
+
+/* ======================
+   页面模块：党团学工（修复排版BUG）
+   ====================== */
+.party-section {
+    padding: 60px 0;
+    background-color: #fff; /* 增加背景色，避免和整体背景冲突 */
+}
+
+/* 党团学工容器重写 - 统一用公共container */
+.party-section .container {
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+}
+
+/* 党团学工标题 - 和其他模块保持一致 */
+.party-section .section-header {
+    margin-bottom: 30px;
+}
+
+.party-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: stretch; /* 保持图片和内容等高 */
+    width: 100%;
+}
+
+/* 党团学工图片容器 - 优化高度适配，增加响应式 */
+.party-image {
+    flex: 1;
+    min-height: 400px; /* 最小高度，避免内容过少时图片过高 */
+    max-height: 500px; /* 最大高度限制 */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* 增加圆角，和内容区统一 */
+}
+
+.party-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保证图片填充容器且不变形 */
+    transition: transform 0.5s ease;
+}
+
+.party-image:hover img {
+    transform: scale(1.03); /* 仅添加悬停放大，不改动尺寸 */
+}
+
+.party-content {
+    flex: 1;
+    padding: 40px 30px; /* 优化内边距，左右减少避免拥挤 */
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 内容顶部对齐 */
+}
+
+.party-content:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.party-item {
+    margin-bottom: 30px; /* 增加间距，避免拥挤 */
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #eee;
+    width: 100%;
+}
+
+/* 最后一个item去掉边框和间距 */
+.party-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.party-date {
+    display: inline-block;
+    background: #003366;
+    color: #fff;
+    padding: 6px 18px; /* 优化内边距 */
+    border-radius: 20px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    white-space: nowrap; /* 避免日期换行 */
+}
+
+.party-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.4; /* 优化行高 */
+}
+
+.party-title a {
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    font-weight: 500; /* 增加字体权重，更醒目 */
+}
+
+.party-title a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #0056b3;
+    transition: width 0.3s ease;
+}
+
+.party-title a:hover::after {
+    width: 100%;
+}
+
+.party-desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7; /* 优化行高，提升可读性 */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 最多显示3行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* 隐藏溢出文字 */
+}
+
+/* 响应式适配 - 小屏幕下改为上下布局 */
+@media (max-width: 992px) {
+    .party-wrapper {
+        flex-direction: column;
+    }
+    .party-image {
+        max-height: 350px; /* 小屏幕缩小图片高度 */
+    }
+}
+
+/* ======================
+   页面模块：相关链接
+   ====================== */
+.related-links {
+    padding: 20px 0;
+    background-color: #f5f5f5;
+    border-top: 1px solid #eaeaea;
+}
+
+.related-links .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.links-title {
+    margin-right: 30px;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.links-list a {
+    color: #666;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.links-list a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+/* ======================
+   页面模块：底部样式
+   ====================== */
+.main-footer {
+    padding: 40px 0;
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.main-footer p {
+    margin: 6px 0;
+    font-size: 14px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* ======================
+   全局功能：滚动动画
+   ====================== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
